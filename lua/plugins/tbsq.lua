@@ -5,7 +5,19 @@ return {
     opts = {
       style = "storm",
       on_highlights = function(hl, c)
+        local colors = require("tokyonight.colors")
+        local c = colors.default
         hl["@constructor"] = { fg = c.blue1 }
+        hl["Include"] = { fg = c.purple }
+        hl["@constant.builtin"] = { fg = c.cyan }
+        hl["@constant"] = { fg = c.orange }
+        hl["@punctuation.bracket"] = { fg = c.cyan }
+        hl["@parameter"] = { fg = c.none }
+        hl["PreProc"] = { fg = c.blue6 }
+        hl["Number"] = { fg = c.yellow }
+        hl["@float"] = { fg = c.yellow }
+        hl["Boolean"] = { fg = c.yellow }
+        hl["@exception"] = { fg = c.orange }
       end,
     },
   },
