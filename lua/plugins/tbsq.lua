@@ -23,6 +23,13 @@ return {
   },
 
   {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight",
+    },
+  },
+
+  {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       filesystem = {
@@ -210,7 +217,7 @@ return {
             cmp.select_next_item()
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
             -- this way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
+          elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
