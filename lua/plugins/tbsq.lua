@@ -30,6 +30,31 @@ return {
   },
 
   {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("kanagawa").setup({
+        theme = "wave",
+      })
+    end,
+  },
+
+  {
+    "olivercederborg/poimandres.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("poimandres").setup({})
+    end,
+  },
+
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+
+  {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       filesystem = {
@@ -39,6 +64,9 @@ return {
           hide_gitignored = false,
           show_hidden_count = false,
         },
+      },
+      window = {
+        width = 30,
       },
     },
   },
@@ -165,8 +193,6 @@ return {
         "markdown",
         "markdown_inline",
         "python",
-        "query",
-        "regex",
         "rust",
         "toml",
         "tsx",
@@ -174,6 +200,7 @@ return {
         "vim",
         "yaml",
       },
+      auto_install = true,
     },
   },
 
@@ -236,5 +263,26 @@ return {
         end, { "i", "s" }),
       })
     end,
+  },
+
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        htmldjango = { "djlint" },
+        python = { "ruff " },
+      },
+    },
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+      linters_by_ft = {
+        python = { "mypy", "ruff" },
+        htmldjango = { "djlint" },
+      },
+    },
   },
 }
